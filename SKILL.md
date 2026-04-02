@@ -97,12 +97,14 @@ language: zh-CN
 **文本模式用户可以跳过这一步，直接进入 Step 4。**
 
 如果用户想要语音增强体验：
-2. 调用 API 列出可用声音或上传样本克隆
-3. **生成测试语音让用户确认质量**
-4. **保存 `speakerId` 到配置文件**
-5. **设置完成** — 后续 mirror/observe 场景会自动使用语音
 
-> 💡 **没有语音也不影响使用**。核心价值在于 Persona 对话，语音是锦上添花。你可以随时回来配置。
+1. **克隆声音**（网页端）— 访问 <https://listenhub.ai/app/voice-cloning>，上传 1-3 段自然说话录音（1-5 分钟），完成克隆
+2. **选择声音** — `python3 ${SKILL_DIR}/tools/voice.py list --language zh` 列出可用声音（克隆声音会自动出现），让用户选择
+3. **测试语音** — `python3 ${SKILL_DIR}/tools/voice.py test --speaker-id "xxx"` 生成测试，确认质量
+4. **保存 `speakerId`** 到配置文件
+5. **设置完成** — 后续 mirror/observe 场景自动使用语音
+
+> 💡 语音克隆在 ListenHub 网页端完成，克隆后自动出现在 API 可用列表中。没有语音不影响使用，核心价值是 Persona 对话。
 
 ### Step 4：Persona 生成
 
@@ -168,9 +170,9 @@ language: zh-CN
 
 | 任务 | 命令 |
 |------|------|
-| 生成语音 | `python3 ${SKILL_DIR}/tools/voice.py speak --text "..." --speaker-id "..." --output output.mp3` |
-| 列出声音 | `python3 ${SKILL_DIR}/tools/voice.py list` |
-| 测试声音 | `python3 ${SKILL_DIR}/tools/voice.py test --speaker-id "..."` |
+| 生成语音 | `Bash` → `python3 ${SKILL_DIR}/tools/voice.py speak --text "..." --speaker-id "..." --output output.mp3` |
+| 列出声音 | `Bash` → `python3 ${SKILL_DIR}/tools/voice.py list --language zh` |
+| 测试声音 | `Bash` → `python3 ${SKILL_DIR}/tools/voice.py test --speaker-id "..."` |
 | 解析微信 | `python3 ${SKILL_DIR}/tools/parsers/wechat.py export.csv --sender "名字"` |
 | 解析 Discord | `python3 ${SKILL_DIR}/tools/parsers/discord.py messages.json --user-id "ID"` |
 | 解析 Twitter | `python3 ${SKILL_DIR}/tools/parsers/twitter.py tweets.js` |
