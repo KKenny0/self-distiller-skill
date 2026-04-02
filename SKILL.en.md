@@ -3,7 +3,8 @@ name: self-distiller
 description: >
   Distill yourself into an AI persona. Import chat history, notes, social media,
   generate your Persona, and achieve deep self-reflection through daily mirror
-  and emotion observation — all in your own cloned voice.
+  and emotion observation. Text mode works out of the box; voice mode adds
+  cognitive defusion power with your own cloned voice.
 argument-hint: "[action]"
 version: 1.0.0
 user-invocable: true
@@ -13,7 +14,9 @@ user-invocable: true
 
 > **Language**: This Skill responds in whatever language the user's first message is in. Match it throughout the session.
 
-Distill yourself into an AI and talk to yourself in your own voice. Not a chatbot, not a journal — it's **hearing your own thoughts spoken back to you** for deep self-awareness.
+Distill yourself into an AI and talk to yourself. **Text mode** works out of the box — zero config needed. **Voice mode** adds an extra layer by speaking your insights back to you in your own voice for a stronger cognitive defusion effect.
+
+Not a chatbot, not a journal, not meditation — it's **hearing your own thoughts reflected back to you** for deep self-awareness.
 
 ## ⚠️ Safety Boundaries
 
