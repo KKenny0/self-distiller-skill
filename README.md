@@ -58,41 +58,73 @@ self-distiller 是一个 **自我反思工具**。它从你的聊天记录、笔
 
 ---
 
-## 🚀 快速开始
+## 🚀 快速开始（5 分钟上手）
 
-### 前置要求
+### Step 0: 前置要求
 
 - [OpenClaw](https://openclaw.ai) — AI Agent 运行时
-- [ListenHub API Key](https://listenhub.ai/settings/api-keys) — 语音克隆 + TTS
+- Python 3.9+ 和 `requests`（`pip install requests`）
+- [ListenHub API Key](https://listenhub.ai/settings/api-keys) — 免费注册即可获取
 
-### 安装
+### Step 1: 安装
 
 ```bash
-# 克隆仓库到 OpenClaw workspace/skills/ 目录
+# 克隆到 OpenClaw workspace/skills/ 目录
 cd ~/.openclaw/workspace/skills/
 git clone https://github.com/KKenny0/self-distiller-skill.git self-distiller
+
+# 设置 API Key
+export LISTENHUB_API_KEY="your-key-here"
 ```
 
-### 创建你的自我蒸馏
+### Step 2: 创建你的 Persona
+
+在 OpenClaw 中输入：
 
 ```
 /create-self
 ```
 
-按提示：
-1. 提供基础信息（3 个问题）
-2. 导入原材料（聊天记录/笔记/社交媒体）
-3. 上传语音样本（1-5 分钟自然说话录音）
-4. 确认 Persona 和语音质量
+回答 3 个问题：
+1. **代号** — 你想叫什么（不是真名）
+2. **一句话介绍自己** — 你的背景和兴趣
+3. **一句话描述性格** — 你的性格特点
 
-### 开始对话
+选择数据导入方式：
+- **[A] 自动采集**（推荐）— 直接用你已有的 OpenClaw 记忆数据
+- **[B] 手动导入** — 导入微信/Discord/Twitter 聊天记录
+- **[C] 快速启动** — 先用已有数据生成，后续补充
+
+### Step 3: 选择声音
+
+self-distiller 会列出可用的预设声音，选择一个最接近你自己的：
 
 ```
-/mirror          # 晨间独白
-/observe         # 情绪旁观者
-/debate [主题]   # 内心辩论 (v2)
-/capsule         # 时间胶囊 (v2)
+可用声音（中文）：
+  CN-Man-Beijing-V2      — 北京男声，沉稳
+  CN-Woman-General-01    — 通用女声，自然
+  CN-Man-General-01      — 通用男声，清晰
+
+选择一个，或者上传你的语音样本进行克隆（需要付费）。
 ```
+
+### Step 4: 开始你的第一次独白
+
+```
+/mirror
+```
+
+AI 会用你的语气跟你对话。关键的反思段落会用你选择的声音朗读出来。
+
+### 所有命令
+
+| 命令 | 功能 |
+|------|------|
+| `/create-self` | 创建新的自我蒸馏 |
+| `/mirror` | 晨间独白 — 每日自我对话 |
+| `/observe` | 情绪旁观者 — 情绪觉察 |
+| `/update-self` | 更新/修正 Persona |
+| `/list-selves` | 列出所有 Persona 版本 |
 
 ---
 
